@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/activity_main"
+        android:title="@string/lamp" app:showAsAction="never" />
+    <item android:id="@+id/action_alarm"
+        android:title="@string/alarm" app:showAsAction="never" />
+    <item android:id="@+id/action_color"
+        android:title="@string/color" app:showAsAction="never" />
+</menu>
