@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -13,17 +16,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AlarmActivity"
+        <activity android:name=".MapActivity" />
+        <activity android:name=".WeatherActivity" />
+        <activity
+            android:name=".AlarmActivity"
             android:label="@string/alarm"
-            android:launchMode="singleInstance"></activity>
-        <activity android:name=".ColorActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".ColorActivity"
             android:label="@string/color"
-            android:launchMode="singleInstance"></activity><!-- 스플래시 액티비티 -->
+            android:launchMode="singleInstance" /> <!-- 스플래시 액티비티 -->
         <activity
             android:name=".SplashActivity"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            android:launchMode="singleInstance">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,16 +42,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBJYL_Y9cxlROLws6lmckJ2tVCOqHAJhsc" />
 
-        <activity android:name=".MainActivity"
-            android:label="@string/lamp"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/lamp" />
 
-        <receiver android:name=".DeviceBootReceiver"
+        <receiver
+            android:name=".DeviceBootReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".AlarmReceiver" />
     </application>
 

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">WeatherLamp</string>
     <string name="app_name2">날씨 알림이 전구</string>
-    <string name="lamp">전등 설정</string>
+    <string name="lamp">무드등 연결</string>
+    <string name="map">현재 위치 확인</string>
+    <string name="weather">날씨 확인</string>
     <string name="alarm">알람</string>
     <string name="color">전등색상 관리</string>
 

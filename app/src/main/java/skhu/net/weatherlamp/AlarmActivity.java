@@ -185,7 +185,14 @@ public class AlarmActivity extends AppCompatActivity {
         } else if (id == R.id.action_color) {
             Intent intent = new Intent(this, ColorActivity.class);
             startActivity(intent);
-
+            return true;
+        }else if (id == R.id.action_weather) {
+            Intent intent = new Intent(this, WeatherActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_map) {
+            Intent intent = new Intent(this, MapActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
