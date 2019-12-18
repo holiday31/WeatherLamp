@@ -1,7 +1,5 @@
 package skhu.net.weatherlamp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
@@ -11,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -59,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnConnect = findViewById(R.id.btnConnect); //연결시도
+        Button btnDisconnect = findViewById(R.id.button2); //연결끊기
+
+        btnDisconnect.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bt.send("7".getBytes(), true);
+                onDestroy();
+            }
+        });
         btnConnect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (bt.getServiceState() == BluetoothState.STATE_CONNECTED) {

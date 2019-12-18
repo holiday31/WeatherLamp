@@ -24,9 +24,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+
 public class AlarmActivity extends AppCompatActivity {
     private BackPressHandler backPressHandler;
-
+    private BluetoothSPP bt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="skhu.net.weatherlamp">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -10,14 +10,19 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name2"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapActivity" />
-        <activity android:name=".WeatherActivity" />
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/map"/>
+        <activity
+            android:name=".WeatherActivity"
+            android:label="@string/weather"/>
         <activity
             android:name=".AlarmActivity"
             android:label="@string/alarm"

@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
@@ -16,14 +17,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 
 import static android.content.Context.MODE_PRIVATE;
-
 public class AlarmReceiver extends BroadcastReceiver {
+    private static final String TAG = "Alarm";
+    private BluetoothSPP bt;
     @Override
     public void onReceive(Context context, Intent intent) {
 
-
+        bt = new BluetoothSPP(context); //Initializing
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent notificationIntent = new Intent(context, MainActivity.class);
 
@@ -60,10 +63,10 @@ public class AlarmReceiver extends BroadcastReceiver {
         builder.setAutoCancel(true)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
-
+//
                 .setTicker("{Time to watch some cool stuff!}")
-                .setContentTitle("상태바 드래그시 보이는 타이틀")
-                .setContentText("상태바 드래그시 보이는 서브타이틀")
+                .setContentTitle("알람 시간입니다,")
+                .setContentText("알람 시간입니다.")
                 .setContentInfo("INFO")
                 .setContentIntent(pendingI);
 
@@ -71,7 +74,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
             // 노티피케이션 동작시킴
             notificationManager.notify(1234, builder.build());
-
+            Log.d(TAG,"----------------------------------------알림-------------------------------------------");
+            //BT 받아오기
+            //bt.send("6".getBytes(), true);
             Calendar nextNotifyTime = Calendar.getInstance();
 
             // 내일 같은 시간으로 알람시간 결정
